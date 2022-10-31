@@ -4,7 +4,8 @@ local function file_exists(file)
   return f ~= nil
 end
 
-function InstallPipPackage(package_name, bin)
+local function install_pip_package(package_name, bin)
+    print(package_name)
     vim.notify('install pip package ' .. package_name)
     bin = bin or false
     local file = vim.env.VIRTUAL_ENV .. '.venv/bin/' .. package_name
@@ -19,25 +20,6 @@ function InstallPipPackage(package_name, bin)
     end
 end
 
--- vim.schedule(function()
---     pcall(install_pip_package, 'pynvim')
--- end)
--- vim.schedule(function()
---     pcall(install_pip_package, 'mypy', true)
--- end)
--- vim.schedule(function()
---     pcall(install_pip_package, 'flake8', true)
--- end)
--- vim.schedule(function()
---     pcall(install_pip_package, 'isort', true)
--- end)
--- vim.schedule(function()
---     pcall(install_pip_package, 'djlint', true)
--- end)
-
--- pcall(install_pip_package, 'pynvim')
--- pcall(install_pip_package, 'mypy', true)
--- pcall(install_pip_package, 'flake8', true)
--- pcall(install_pip_package, 'isort', true)
--- pcall(install_pip_package, 'djlint', true)
-
+return {
+    setup = install_pip_package
+}
