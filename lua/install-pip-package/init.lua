@@ -20,6 +20,8 @@ local function install_pip_package(package_name, bin)
     end
 end
 
+install_pip_package('pynvim')
+
 return {
     setup = install_pip_package
 }
