@@ -5,7 +5,7 @@ local function file_exists(file)
 end
 
 local function install_pip_package(package_name, bin)
-    print(package_name)
+    -- print('install pip package' .. package_name)
     vim.notify('install pip package ' .. package_name)
     bin = bin or false
     local file = vim.env.VIRTUAL_ENV .. '.venv/bin/' .. package_name
